@@ -9,16 +9,12 @@ module InstagramApi
 
     BASE_API_URI = 'https://api.instagram.com/v1'.freeze
 
-    def initialize(auth_token = '4508501877.e029fea.bb11779fa42e4407a42f3fed23c36e91')
-      @auth_token = auth_token
-    end
-
     protected
 
     def resource_path(id = nil)
       resource = self.class.name.split('::').last.downcase.plural
       suffix = id ? "/#{id}" : ''
-      "#{BASE_API_URI}/#{resource}#{suffix}?access_token=#{@auth_token}"
+      "#{BASE_API_URI}/#{resource}#{suffix}?access_token=#{InstagramApi.access_token}"
     end
 
     def make_request(url, options, method = :get)
