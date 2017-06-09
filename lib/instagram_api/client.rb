@@ -1,5 +1,6 @@
 require 'httparty'
 require 'plural'
+require 'hashie'
 
 module InstagramApi
 
@@ -18,9 +19,26 @@ module InstagramApi
     end
 
     def make_request(url, options, method = :get)
-      request = HTTParty.send(method, url, options)
-      return JSON.parse(request.body, symbolize_names: true) if request.success?
-      request
+      response = HTTParty.send(method, url, options)
+      if response.success?
+        parse_success response
+      else
+        parse_failed response
+      end
+    end
+
+    private
+
+    def parse_success(response)
+      response_hash = JSON.parse(response.body).merge(
+        limit: response.headers['x-ratelimit-limit'],
+        remaining: response.headers['x-ratelimit-remaining']
+      )
+      ::Hashie::Mash.new(response_hash)
+    end
+
+    def parse_failed(response)
+      nil
     end
 
   end
