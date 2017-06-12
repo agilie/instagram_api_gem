@@ -1,6 +1,7 @@
 require 'httparty'
 require 'plural'
 require 'hashie'
+require 'instagram_api/exceptions'
 
 module InstagramApi
 
@@ -9,6 +10,16 @@ module InstagramApi
     include HTTParty
 
     BASE_API_URI = 'https://api.instagram.com/v1'.freeze
+
+    ERROR_CODES = {
+      400 => BadRequest,
+      404 => NotFound,
+      429 => TooManyRequests,
+      500 => InternalServerError,
+      502 => BadGateway,
+      503 => ServiceUnavailable,
+      504 => GatewayTimeout
+    }.freeze
 
     protected
 
@@ -38,7 +49,8 @@ module InstagramApi
     end
 
     def parse_failed(response)
-      nil
+      error = ERROR_CODES[response.code].new(response)
+      raise error, error.message
     end
 
   end
