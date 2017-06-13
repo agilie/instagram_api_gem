@@ -18,8 +18,8 @@ module InstagramApi
 
   class << self
     RESOURCES.each do |resource|
-      define_method resource do
-          klass_name(resource).new
+      define_method resource do |resource_id = nil|
+          klass_name(resource).new(resource_id)
       end
     end
 

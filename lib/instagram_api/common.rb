@@ -2,19 +2,6 @@ require 'instagram_api/client'
 
 module InstagramApi
 
-  module Getters
-    include Client
-
-    # TODO: Make this like resource method
-    def show(id, options = {})
-      make_request resource_path(id), query: options
-    end
-
-    def recent_media(id, options = {})
-      make_request resource_path("#{id}/media/recent"), query: options
-    end
-  end
-
   module Search
     include Client
 
@@ -25,6 +12,13 @@ module InstagramApi
 
   module Resource
     include Client
+
+    private
+
+    def show(id, options = {})
+      raise 'Resource ID is required' unless id
+      make_request resource_path(id), query: options
+    end
 
     def index(id, resource_name, options = {})
       raise 'Resource ID is required' unless id

@@ -3,12 +3,15 @@ require 'instagram_api/common'
 module InstagramApi
 
   class Media
-    include Getters
     include Search
     include Resource
 
     def initialize(media_id = nil)
       @media_id = media_id
+    end
+
+    def show(options = {})
+      super @media_id, options
     end
 
     def short_code(short_code, options = {})

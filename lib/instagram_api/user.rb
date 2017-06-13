@@ -3,19 +3,23 @@ require 'instagram_api/common'
 module InstagramApi
 
   class User
-    include Getters
     include Search
+    include Resource
 
-    def show(id = 'self', options = {})
-      super id, options
+    def initialize(user_id)
+      @user_id = user_id ? user_id : 'self'
     end
 
-    def recent_media(id = 'self', options = {})
-      super id, options
+    def show(options = {})
+      super @user_id, options
     end
 
-    def liked_media(id = 'self', options = {})
-      make_request resource_path("#{id}/media/liked"), query: options
+    def recent_media(options = {})
+      index @user_id, 'media/recent', options
+    end
+
+    def liked_media(options = {})
+      index @user_id, 'media/recent', options
     end
 
     def follows(options = {})
