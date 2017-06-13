@@ -5,7 +5,7 @@ require 'instagram_api/exceptions'
 
 module InstagramApi
 
-  class Client
+  module Client
 
     include HTTParty
 

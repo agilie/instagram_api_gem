@@ -1,8 +1,10 @@
-require 'instagram_api/resource'
+require 'instagram_api/common'
 
 module InstagramApi
 
-  class Tag < Resource
+  class Tag
+    include Getters
+    include Search
 
   end
 

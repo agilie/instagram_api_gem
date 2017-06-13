@@ -1,8 +1,10 @@
-require 'instagram_api/resource'
+require 'instagram_api/common'
 
 module InstagramApi
 
-  class User < Resource
+  class User
+    include Getters
+    include Search
 
     def show(id = 'self', options = {})
       super id, options
@@ -24,8 +26,12 @@ module InstagramApi
       make_request resource_path('self/followed-by'), query: options
     end
 
-    def requested_by(options = {})
-      make_request resource_path('self/requested-by'), query: options
+    def check_relationship(user_id, options = {})
+      make_request resource_path("#{user_id}/relationship"), query: options
+    end
+
+    def change_relationship(options = {})
+      make_request resource_path("#{user_id}/relationship"), {body: options}, :post
     end
 
   end

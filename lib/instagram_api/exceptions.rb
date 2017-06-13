@@ -4,8 +4,6 @@ module InstagramApi
     attr_reader :message, :type, :code
 
     def initialize(response)
-      p 'response.inspect'
-      p response.inspect
       body = JSON.parse(response.body)
 
       @code = "#{response[:status]}"

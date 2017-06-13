@@ -1,8 +1,10 @@
-require 'instagram_api/resource'
+require 'instagram_api/common'
 
 module InstagramApi
 
-  class Location < Resource
+  class Location
+    include Getters
+    include Search
 
   end
 
