@@ -20,7 +20,7 @@ module InstagramApi
     end
 
     def delete_like(id, options = {})
-      destroy(id, 'likes', options)
+      destroy(id, 'likes', nil, options)
     end
 
     def comments(id, options = {})
