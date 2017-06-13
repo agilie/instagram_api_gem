@@ -14,13 +14,17 @@ module InstagramApi
 
   @access_token = '4692075674.b05d058.d5d2b6a5742e4318a69ba234430fe964'
 
-  RESOURCES = %w(user location tag media).freeze
+  RESOURCES = %w(user location tag).freeze
 
   class << self
     RESOURCES.each do |resource|
       define_method resource do
-        klass_name(resource).new
+          klass_name(resource).new
       end
+    end
+
+    def media(media_id = nil)
+      Media.new(media_id)
     end
 
     private

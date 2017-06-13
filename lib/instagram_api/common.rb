@@ -5,6 +5,7 @@ module InstagramApi
   module Getters
     include Client
 
+    # TODO: Make this like resource method
     def show(id, options = {})
       make_request resource_path(id), query: options
     end
@@ -26,14 +27,17 @@ module InstagramApi
     include Client
 
     def index(id, resource_name, options = {})
+      raise 'Resource ID is required' unless id
       make_request resource_path("#{id}/#{resource_name}"), query: options
     end
 
     def create(id, resource_name, options = {})
+      raise 'Resource ID is required' unless id
       make_request( resource_path("#{id}/#{resource_name}"), {body: options}, :post)
     end
 
     def destroy(id, resource_name, resource_id = nil, options = {})
+      raise 'Resource ID is required' unless id
       path = "#{id}/#{resource_name}"
       path = "#{path}/#{resource_id}" if resource_id
       make_request( resource_path(path), {query: options}, :delete)

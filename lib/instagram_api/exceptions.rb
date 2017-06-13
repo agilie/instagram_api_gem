@@ -10,7 +10,6 @@ module InstagramApi
       @type = body['meta']['error_type']
       @message = body['meta']['error_message']
     end
-
   end
 
   # Raised when Instagram returns the HTTP status code 400
