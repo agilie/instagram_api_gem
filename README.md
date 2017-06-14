@@ -26,6 +26,7 @@ to generate it http://services.chrisriversdesign.com/instagram-token/
 
 1. OAuth authorization for access token fetching
 2. Incode Documentation
+3. Cover functionality with tests
 
 ## Contributing
 

@@ -4,6 +4,7 @@ module InstagramApi
 
   class Tag
     include Search
+    include Resource
 
     def initialize(tag_id = nil)
       @tag_id = tag_id
