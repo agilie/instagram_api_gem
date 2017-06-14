@@ -22,7 +22,7 @@ end
 As for now Instagram access token doesn't change or expire, so you can use this simple-to-use service
 to generate it http://services.chrisriversdesign.com/instagram-token/
 
-##TODOS
+## TODOS
 
 1. OAuth authorization for access token fetching
 2. Incode Documentation
