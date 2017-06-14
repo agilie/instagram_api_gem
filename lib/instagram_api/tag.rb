@@ -12,7 +12,6 @@ module InstagramApi
     def recent_media(options = {})
       index @tag_id, 'media/recent', options
     end
-
   end
 
 end

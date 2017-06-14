@@ -12,19 +12,13 @@ require 'instagram_api/configuration'
 module InstagramApi
   extend Configuration
 
-  @access_token = '4692075674.b05d058.d5d2b6a5742e4318a69ba234430fe964'
-
-  RESOURCES = %w(user location tag).freeze
+  RESOURCES = %w(user location tag media).freeze
 
   class << self
     RESOURCES.each do |resource|
       define_method resource do |resource_id = nil|
-          klass_name(resource).new(resource_id)
+        klass_name(resource).new(resource_id)
       end
-    end
-
-    def media(media_id = nil)
-      Media.new(media_id)
     end
 
     private
@@ -33,7 +27,5 @@ module InstagramApi
       "InstagramApi::#{resource.capitalize}".split('::').inject(Object) {|o, c| o.const_get c}
     end
   end
-
-
 
 end

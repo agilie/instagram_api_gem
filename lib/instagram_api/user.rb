@@ -19,7 +19,7 @@ module InstagramApi
     end
 
     def liked_media(options = {})
-      index @user_id, 'media/recent', options
+      index @user_id, 'media/liked', options
     end
 
     def follows(options = {})
@@ -34,10 +34,9 @@ module InstagramApi
       make_request resource_path("#{user_id}/relationship"), query: options
     end
 
-    def change_relationship(options = {})
+    def change_relationship(user_id, options = {})
       make_request resource_path("#{user_id}/relationship"), {body: options}, :post
     end
-
   end
 
 end

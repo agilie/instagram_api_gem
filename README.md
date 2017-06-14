@@ -22,6 +22,11 @@ end
 As for now Instagram access token doesn't change or expire, so you can use this simple-to-use service
 to generate it http://services.chrisriversdesign.com/instagram-token/
 
+##TODOS
+
+1. OAuth authorization for access token fetching
+2. Incode Documentation
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/agilie/instagram_api_gem/issues. 

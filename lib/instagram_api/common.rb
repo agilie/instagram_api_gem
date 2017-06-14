@@ -5,8 +5,8 @@ module InstagramApi
   module Search
     include Client
 
-    def search(options = {})
-      make_request resource_path('search'), query: options
+    def search(query, options = {})
+      make_request resource_path('search'), query: options.merge(q: query)
     end
   end
 
@@ -27,14 +27,14 @@ module InstagramApi
 
     def create(id, resource_name, options = {})
       raise 'Resource ID is required' unless id
-      make_request( resource_path("#{id}/#{resource_name}"), {body: options}, :post)
+      make_request(resource_path("#{id}/#{resource_name}"), { body: options }, :post)
     end
 
     def destroy(id, resource_name, resource_id = nil, options = {})
       raise 'Resource ID is required' unless id
       path = "#{id}/#{resource_name}"
       path = "#{path}/#{resource_id}" if resource_id
-      make_request( resource_path(path), {query: options}, :delete)
+      make_request(resource_path(path), { query: options }, :delete)
     end
   end
 
