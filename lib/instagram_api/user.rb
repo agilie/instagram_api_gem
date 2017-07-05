@@ -7,7 +7,7 @@ module InstagramApi
     include Resource
 
     def initialize(user_id)
-      @user_id = user_id ? user_id : 'self'
+      @user_id = user_id || 'self'
     end
 
     def show(options = {})
