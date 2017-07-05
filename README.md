@@ -33,7 +33,7 @@ method, `Tags` by `InstagramAPI.tag` and so on.
 The main methods of each resource are `show`, `index`, `create`, `destroy` and `search`. The methods and API endpoints 
 correspondence is as follows 
 
- |    |    | 
+ |  Gem Action  |  API Endpoint  | 
  | -------- | ----- | 
  |  **User Resource** |  | 
  |  InstagramAPI.user.show | GET /users/self | 
