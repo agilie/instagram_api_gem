@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'instagram_api/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "instagram_api"
+  spec.name          = 'instagram_api_client'
   spec.version       = InstagramApi::VERSION
   spec.authors       = ['SergeyMell']
   spec.email         = ['sergey.mell@agilie.com']

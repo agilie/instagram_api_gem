@@ -8,7 +8,7 @@ You can see the api endpoints here https://www.instagram.com/developer/endpoints
 ## Installation
 
 ```ruby
-gem install instagram_api
+gem install instagram_api_client
 ```
 
 ## Usage
