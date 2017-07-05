@@ -30,6 +30,10 @@ module InstagramApi
       make_request resource_path('self/followed-by'), query: options
     end
 
+    def requested_by(options = {})
+      make_request resource_path('self/requested-by'), query: options
+    end
+
     def check_relationship(user_id, options = {})
       make_request resource_path("#{user_id}/relationship"), query: options
     end

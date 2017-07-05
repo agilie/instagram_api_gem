@@ -4,9 +4,14 @@ module InstagramApi
 
   class Location
     include Search
+    include Resource
 
     def initialize(location_id = nil)
       @location_id = location_id
+    end
+
+    def show
+      super @location_id
     end
 
     def recent_media(options = {})

@@ -10,6 +10,10 @@ module InstagramApi
       @tag_id = tag_id
     end
 
+    def show
+      super @tag_id
+    end
+
     def recent_media(options = {})
       index @tag_id, 'media/recent', options
     end

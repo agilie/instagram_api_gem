@@ -6,7 +6,8 @@ module InstagramApi
     include Client
 
     def search(query, options = {})
-      make_request resource_path('search'), query: options.merge(q: query)
+      options = query.is_a?(Hash) ? options.merge(query) : options.merge(q: query)
+      make_request resource_path('search'), query: options
     end
   end
 

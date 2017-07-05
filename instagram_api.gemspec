@@ -6,8 +6,8 @@ require 'instagram_api/version'
 Gem::Specification.new do |spec|
   spec.name          = 'instagram_api_client'
   spec.version       = InstagramApi::VERSION
-  spec.authors       = ['SergeyMell']
-  spec.email         = ['sergey.mell@agilie.com']
+  spec.authors       = ['Sergey Mell', 'Agilie Team']
+  spec.email         = ['sergey.mell@agilie.com', 'web@agilie.com']
 
   spec.summary       = 'A Ruby wrapper for the Instagram API'
   spec.description   = 'A Ruby wrapper for the Instagram API'
