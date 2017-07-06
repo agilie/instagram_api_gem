@@ -2,7 +2,11 @@
   <img width="600" src="https://agilie.com/instagram_api_gem_logo.png" alt="Logo">
 </p>
 
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/agilie/instagram_api_gem)
+<p align="center">
+<a href="https://github.com/agilie/instagram_api_gem">
+<img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="License">
+</a>
+</p>
 
 # InstagramApi
 
