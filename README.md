@@ -3,9 +3,19 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/agilie/instagram_api_gem">
-<img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="License">
+
+<a href="https://www.agilie.com?utm_source=github&utm_medium=referral&utm_campaign=Git_Ruby&utm_term=instagram_api_gem">
+<img src="https://img.shields.io/badge/Made%20by%20Agilie-*****-green.svg?style=flat" alt="Made by Agilie">
 </a>
+
+<a href="https://github.com/agilie/instagram_api_gem">
+  <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="License">
+</a>
+
+<a href="https://rubygems.org/gems/instagram_api_client">
+  <img src="http://ruby-gem-downloads-badge.herokuapp.com/instagram_api_client?type=total&color=brightgreen" alt="Downloads">
+</a>
+
 </p>
 
 # InstagramApi
@@ -20,6 +30,10 @@ A Ruby wrapper for the Instagram API. You can see the api endpoints here https:/
 ```ruby
 gem install instagram_api_client
 ```
+
+<p align="right">
+  <img width="100" src="https://agilie.com/logos.png" alt="Logos">
+</p>
 
 ## Usage
 
