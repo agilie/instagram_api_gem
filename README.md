@@ -1,12 +1,16 @@
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/agilie/instagram_api_gem)
 
+<p align="center">
+  <img width="600" src="https://agilie.com/instagram_api_gem_logo.png" alt="Logo">
+</p>
+
 # InstagramApi
 
 <table border="0">
 <tr>
   <td style="vertical-align: top; text-align: left;">A Ruby wrapper for the Instagram API. 
       You can see the api endpoints here https://www.instagram.com/developer/endpoints/</td>
-  <td><img width="600" src="https://agilie.com/instagram_api_gem.png" alt="Logo"></td>
+  <td><img width="600" src="https://agilie.com/instagram_api_gem.png" alt="Example"></td>
 </tr>
 </table>
 
