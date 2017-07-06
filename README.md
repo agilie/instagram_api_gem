@@ -1,5 +1,6 @@
 <p align="center">
   <img width="600" src="https://agilie.com/instagram_api_gem_logo.png" alt="Logo">
+  <img width="100" src="https://agilie.com/logos.png" alt="Logos">
 </p>
 
 <p align="center">
@@ -29,11 +30,7 @@ A Ruby wrapper for the Instagram API. You can see the api endpoints here https:/
 
 ```ruby
 gem install instagram_api_client
-```
-
-<p align="right">
-  <img width="100" src="https://agilie.com/logos.png" alt="Logos">
-</p>
+```  
 
 ## Usage
 
