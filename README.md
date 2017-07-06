@@ -3,7 +3,7 @@
 </p>
 
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/agilie/instagram_api_gem)
-[![Gem](https://img.shields.io/gem/dtv/rails.svg)](https://github.com/agilie/instagram_api_gem)
+
 # InstagramApi
 
 <p align="center"> 
