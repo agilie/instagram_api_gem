@@ -3,7 +3,7 @@
 # InstagramApi
 
 <p align="right">
-    <img src="https://agilie.com/instagram_api_gem.png" alt="Logo">
+    <img style="float: right;" src="https://agilie.com/instagram_api_gem.png" alt="Logo">
 </p>
 
 A Ruby wrapper for the Instagram API. 
