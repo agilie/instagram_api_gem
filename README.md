@@ -2,13 +2,13 @@
 
 # InstagramApi
 
-<table>
+<table border="0">
 <tr>
-  <td>A Ruby wrapper for the Instagram API. 
+  <td style="vertical-align: top; text-align: left;">A Ruby wrapper for the Instagram API. 
       You can see the api endpoints here https://www.instagram.com/developer/endpoints/</td>
-  <td><img style="float: right;" src="https://agilie.com/instagram_api_gem.png" alt="Logo"></td>
+  <td><img width="600" src="https://agilie.com/instagram_api_gem.png" alt="Logo"></td>
 </tr>
-   </table>
+</table>
 
 
 ## Installation
