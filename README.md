@@ -8,12 +8,8 @@
 
 <p align="center"> 
     <img width="300" src="https://agilie.com/instagram_api_gem.png" alt="Example">
-    <br>
-    <span>
-      A Ruby wrapper for the Instagram API. You can see the api endpoints here https://www.instagram.com/developer/endpoints/
-    </span> 
 </p>
-
+A Ruby wrapper for the Instagram API. You can see the api endpoints here https://www.instagram.com/developer/endpoints/
 
 ## Installation
 
