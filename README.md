@@ -8,7 +8,7 @@
       You can see the api endpoints here https://www.instagram.com/developer/endpoints/</td>
   <td><img style="float: right;" src="https://agilie.com/instagram_api_gem.png" alt="Logo"></td>
 </tr>
-   
+   </table>
 
 
 ## Installation
