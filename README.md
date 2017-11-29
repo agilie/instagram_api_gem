@@ -47,6 +47,8 @@ As for now Instagram access token doesn't change or expire, so you can use this 
 to generate it http://services.chrisriversdesign.com/instagram-token/
 I the nearest future the OAuth authorization for access token fetching will be implemented.
 
+#### Resources
+
 The main module of the gem is `InstagramApi`. It provides a series of methods, regarding each Instagram resource. They are: 
 `Users`, `Media`, `Comments`, `Likes`, `Tags` and `Locations`. So the `Users` resource methods can be accessed by `InstagramApi.user`
 method, `Tags` by `InstagramApi.tag` and so on.
@@ -105,6 +107,12 @@ InstagramApi.location.search({lat: 33.10, lng: 15.40})
 ```
 
 Response is a `Hashie::Mash` object
+
+#### Subscription
+
+Subscriptions is a useful feature which allows to receive 
+notifications when people who authenticated your app 
+post new media on Instagram.
 
 
 ## TODOS

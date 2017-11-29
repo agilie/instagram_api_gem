@@ -9,6 +9,8 @@ require 'instagram_api/location'
 require 'instagram_api/media'
 require 'instagram_api/configuration'
 
+require 'instagram_api/subscription'
+
 module InstagramApi
   extend Configuration
 
@@ -19,6 +21,10 @@ module InstagramApi
       define_method resource do |resource_id = nil|
         klass_name(resource).new(resource_id)
       end
+    end
+
+    def self.subscription(client_id = InstagramApi.client_id, client_secret = InstagramApi.client_secret)
+      InstagramApi::Subscription.new(client_id, client_secret)
     end
 
     private

@@ -1,5 +1,6 @@
 module InstagramApi
 
+  # Custom error class to rescue from Instagram errors
   class Error < StandardError
     attr_reader :message, :type, :code
 
