@@ -14,15 +14,12 @@ module InstagramApi
       raise 'Invalid configuration: client secret is missing' unless @client_secret
     end
 
-    def create
+    def create(options)
       options = {
         client_id: @client_id,
         client_secret: @client_secret,
-        object: 'user',
-        aspect: 'media',
-        verify_token: 'my_custom_token',
-        callback_url: 'http://your-callback-url'
-      }
+        verify_token: @@verify_token,
+      }.merge(options)
       make_request resource_path,
                    { body: options },
                    :post
