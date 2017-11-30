@@ -14,17 +14,13 @@ require 'instagram_api/subscription'
 module InstagramApi
   extend Configuration
 
-  RESOURCES = %w(user location tag media).freeze
+  RESOURCES = %w(user location tag media subscription).freeze
 
   class << self
     RESOURCES.each do |resource|
       define_method resource do |resource_id = nil|
         klass_name(resource).new(resource_id)
       end
-    end
-
-    def self.subscription(client_id = InstagramApi.client_id, client_secret = InstagramApi.client_secret)
-      InstagramApi::Subscription.new(client_id, client_secret)
     end
 
     private
