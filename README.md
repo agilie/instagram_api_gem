@@ -28,18 +28,27 @@ A Ruby wrapper for the Instagram API. You can see the api endpoints here https:/
 
 ## Installation
 
+Install gem in your ruby project
 ```ruby
 gem install instagram_api_client
 ```  
 
+or just add to it your `Gemfile`
+```
+gem 'instagram_api_client'
+```
+if you are on the Rails and run `bundle`
+
 ## Usage
 
 Before you start making the requests to instagram API provide the `access_token` using the configuration
-wrapping.
+wrapping. If you are going to use **Subscriptions** you should add client_id and client_secret.
 
 ```ruby
 InstagramApi.config do |config|
-  config.access_token = 'put_your_token_here'
+  config.access_token = 'put your token here'
+  config.client_id = 'put your client ID here'
+  config.client_secret = 'put your client secret here'
 end
 ```
 
@@ -47,7 +56,7 @@ As for now Instagram access token doesn't change or expire, so you can use this 
 to generate it http://services.chrisriversdesign.com/instagram-token/
 I the nearest future the OAuth authorization for access token fetching will be implemented.
 
-#### Resources
+## Resources
 
 The main module of the gem is `InstagramApi`. It provides a series of methods, regarding each Instagram resource. They are: 
 `Users`, `Media`, `Comments`, `Likes`, `Tags` and `Locations`. So the `Users` resource methods can be accessed by `InstagramApi.user`
@@ -108,11 +117,71 @@ InstagramApi.location.search({lat: 33.10, lng: 15.40})
 
 Response is a `Hashie::Mash` object
 
-#### Subscription
+## Subscriptions
 
-Subscriptions is a useful feature which allows to receive 
-notifications when people who authenticated your app 
-post new media on Instagram.
+Subscriptions is a useful feature which allows to receive notifications when people who authenticated your app
+post new media on Instagram. You can find more information on https://www.instagram.com/developer/subscriptions/
+
+#### Creating a subscription
+
+Creating subscription is very simple. Just refer to the [original documentation](https://www.instagram.com/developer/subscriptions/) to
+check the options available
+```ruby
+InstagramApi.subscription.create({
+    object: 'user',
+    aspect: 'media',
+    callback_url: 'http://your.callback/url'
+})
+```
+This method automatically generates `verify_token`. However, you can pass your own, if you prefer
+```ruby
+InstagramApi.subscription.create({
+    object: 'user',
+    aspect: 'media',
+    callback_url: 'http://your.callback/url',
+    verify_token: 'MyCustomVerifyToken'
+})
+```
+#### Validating subscription
+
+When you add a subscription, Instagram will send a GET request to your callback URL to verify the existence of the URL.
+When Instagram has new data, it'll POST this data to your callback URL. To validate the subscription your callback action
+should validate verify_token from instagram request and response with a `hub.challenge` parameter value.
+
+You can easily implement it with a single line
+
+```ruby
+# CallbackController
+
+# GET callback url action
+def index
+    render plain: InstagramApi.subscription.validate(params)
+end
+```
+or
+```ruby
+# CallbackController
+
+# GET callback url action
+def index
+    render plain: InstagramApi.subscription.validate(params, 'MyCustomVerifyToken')
+end
+```
+if you are using your own `verify_token`
+
+#### Managing subscriptions
+
+You can easily get the list of your subscriptions
+```ruby
+InstagramApi.subscription.index
+```
+
+or destroy them if you prefer
+
+```ruby
+InstagramApi.subscription.destroy({object: 'all'})
+InstagramApi.subscription.destroy({id: 1})
+```
 
 
 ## TODOS
