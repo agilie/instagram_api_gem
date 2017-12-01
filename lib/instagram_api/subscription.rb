@@ -15,9 +15,10 @@ module InstagramApi
 
     def create(options)
       @@verify_token = options[:verify_token] || generate_verify_token
-      logger.info '@@verify_token'
-      logger.info @@verify_token
-      logger.info '=============='
+      p 'Generating'
+      p '@@verify_token'
+      p @@verify_token
+      p '=============='
       options = {
         client_id: @client_id,
         client_secret: @client_secret,
@@ -50,6 +51,12 @@ module InstagramApi
 
     def validate(params, verify_token = nil)
       verify_token = verify_token || @@verify_token
+      p 'Validating'
+      p "params['hub.verify_token']"
+      p params['hub.verify_token']
+
+      p 'verify_token'
+      p verify_token
       return unless params['hub.mode'] == 'subscribe' || params['hub.verify_token'] == verify_token
       params['hub.challenge']
     end
