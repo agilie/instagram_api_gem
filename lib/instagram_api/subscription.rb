@@ -9,12 +9,15 @@ module InstagramApi
     def initialize(verify_token = nil)
       @client_id = InstagramApi.client_id
       @client_secret = InstagramApi.client_secret
-      @@verify_token = verify_token || generate_verify_token
       raise 'Invalid configuration: client ID is missing' unless @client_id
       raise 'Invalid configuration: client secret is missing' unless @client_secret
     end
 
     def create(options)
+      @@verify_token = options[:verify_token] || generate_verify_token
+      logger.info '@@verify_token'
+      logger.info @@verify_token
+      logger.info '=============='
       options = {
         client_id: @client_id,
         client_secret: @client_secret,
