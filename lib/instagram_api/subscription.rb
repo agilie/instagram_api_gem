@@ -6,7 +6,7 @@ module InstagramApi
 
     include Client
 
-    def initialize(verify_token = nil)
+    def initialize(fake_param = nil)
       @client_id = InstagramApi.client_id
       @client_secret = InstagramApi.client_secret
       raise 'Invalid configuration: client ID is missing' unless @client_id
@@ -15,10 +15,6 @@ module InstagramApi
 
     def create(options)
       @@verify_token = options[:verify_token] || generate_verify_token
-      p 'Generating'
-      p '@@verify_token'
-      p @@verify_token
-      p '=============='
       options = {
         client_id: @client_id,
         client_secret: @client_secret,
@@ -38,12 +34,11 @@ module InstagramApi
                    { query: options }
     end
 
-    def destroy
+    def destroy(options)
       options = {
         client_id: @client_id,
-        client_secret: @client_secret,
-        object: 'all'
-      }
+        client_secret: @client_secret
+      }.merge(options)
       make_request resource_path,
                    { query: options },
                    :delete
@@ -51,12 +46,6 @@ module InstagramApi
 
     def validate(params, verify_token = nil)
       verify_token = verify_token || @@verify_token
-      p 'Validating'
-      p "params['hub.verify_token']"
-      p params['hub.verify_token']
-
-      p 'verify_token'
-      p verify_token
       return unless params['hub.mode'] == 'subscribe' || params['hub.verify_token'] == verify_token
       params['hub.challenge']
     end
