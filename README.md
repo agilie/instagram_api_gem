@@ -56,6 +56,8 @@ As for now Instagram access token doesn't change or expire, so you can use this 
 to generate it http://services.chrisriversdesign.com/instagram-token/
 I the nearest future the OAuth authorization for access token fetching will be implemented.
 
+This resource is helpful to obtain an instagram token a different way: https://github.com/adrianengine/jquery-spectragram/wiki/How-to-get-Instagram-API-access-token-and-fix-your-broken-feed
+
 ## Resources
 
 The main module of the gem is `InstagramApi`. It provides a series of methods, regarding each Instagram resource. They are: 
